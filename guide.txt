@@ -1,0 +1,71 @@
+1. aws ec2 instance 생성
+이름
+	jsdno0-nodejs
+AMI ID
+	ami-0c9c942bd7bf113a2
+키페어
+	jsdno0-nodejs-key
+	-----BEGIN RSA PRIVATE KEY-----
+	MIIEpAIBAAKCAQEAo+qZhWVtlRn0dnk1TA19sspQAI3BOQ4NHvfrEZ5rOti5gr2k
+	PGTdfEzn8V59W+YeJdwGOGltIA5mFddAtkmjKb4IGJiceHXV8jH6RoBpdBQVzdIL
+	wK6L7IQMHnt8qk7emCkyr/sYWJg58wWWIE2mZbtSN9ZkbOsN9uLm9gy2m3y9T3zk
+	Scl2KXuDpdYDHEbxv3W89JZBXR0sRoWBt3zm0O01Zctw3endypYOqq4JXJP0vKOX
+	uDJ8K5dJN6ZkGos5ayZyrT74dqFOGgFNkNeSgF4JHiUxjXs4GYoPI1lo4MQXYsHl
+	upRNOfYa5T1yGGCHaYcRzUgtFqSmau0q6/QfUwIDAQABAoIBADsm09PhsFPYE/IU
+	93jEfZHhlFE+1nWibnW4fanUA1ovD3LwwK3SsGLE1gayVIavWj3LUqtU0D57M7e5
+	/+5IUIsluoI1wHFwBI7sHicG/AcZoGyv2fHkizYEyOLPKUPERmueol4DPNvrwy3B
+	3FU38E5R9O+VfJQZluZ7J2GvYM5m932vJZLaRgSveOvSCFdPI2q4QRa0Pen6bABJ
+	ecjWqSuzX18w2Fdi+iuBypAn32rMDwSfSZ9PJ3BF2nlyvi0pC1czpBCog87z8W+8
+	lvwZplnAOGPrHyuy1j1P9SA79H9wQziLJQHVDiLu6Q06uEXK4pdJQykeTXOstDlQ
+	z03LC1ECgYEA0fluizNhXitM9uj+6McFEHz+MqKMP4pYTYl40vxp5Qkj6VnNSkJT
+	IrVff2hvT75yWTgIRBVTvNdUuppSZVJNtf63DMFIETZbQVRtZxLLiGTfr+zDjkUS
+	+KaJ5wDCatSghTVMdk3Qt1ein0HDYKGLuVlB0t6zuIO0zTrKQ67sN20CgYEAx9io
+	aSElbUee9LQ8OUxdfwoYrR8ry2q4VeMdPkg+LNCXcwfa/3EviNoRfuSFhacZg0OB
+	Nx4yQuWIY4pfPDObOgfX0cYosOrvjscdUhox2wFsAphfBzS6aBrBx/fMshvvPPVM
+	EZvkr+2SgOXVaTPFicfVmMsELhAyVW6EiKWtub8CgYEAlpvzTqVsEb+9VN2K+izG
+	1SzSqD8vmeQBspwIrk2fJ0mHGLnxJnKsbxjphtnB/dD89EHcq/kgNzO88pv+ve5r
+	Dz/EzMFWkAINMq78ShKRKyQvzmBlZIbnNLM/9xH0YexhtyqjzbfDHb8eRl1FZup4
+	7lm3fSmAf7j41rx0mFe/14ECgYB5fiuUDgSU1O+70D60jspgSyEJTmPvfGeoPzQu
+	AvlZgU4xLlti48qEJh5wyDisMhP+ivFpMsBXjvdFnH+dN7psowv/ibp/I7STVlVq
+	7mXUwJ6LTVqoJNQWKf4YtXsJ5JWit3WRVvbGRWXFWvRMyp6Szpv6EaHu5wXSjieg
+	cyiUPQKBgQDFAiwxviQubLHbS5zsHBKilKGxWq6PFGaRTtE6xLxIpifilxQ9PVdE
+	eU76DIlIp8VPicCPbYikb4NRjldR+5cGPYXMGGpNPbQTi7xrxihs2CnagvdE+u89
+	fMBX206sgVkEbplACWBlHQH4YTzia+J3smAQzlc/9qk2YOnxbQSIEg==
+	-----END RSA PRIVATE KEY-----
+보안그룹
+	launch-wizard-1
+네트워크
+	vpc-4edf6425
+	(전부다 체크)
+인스턴드
+	i-01da4de1d34cc51a2
+	
+2. 인스턴스 연결
+	nodejs 설치
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+	nvm 활성화
+		. ~/.nvm/nvm.sh
+	nvm 최신버전 설치
+		nvm install --lts
+	node 테스트
+		node -e "console.log('Running Node.js ' + process.version)"
+
+3. app server coding
+
+4. local에서 vite vue app 기본 생성
+
+5. git 생성 후 push
+
+6. aws ec2에서 git clone 
+
+7. 보안그룹변경
+	인바운드 규칙 편집 
+	규칙 편집에서 규칙추가 > 사용자 지정 TCP > 포트 범위 7771, 3010 2개 추가 > Anywhere-IPv4로 설정 후 규칙 저장을 한다.
+
+8. vite-vue, nodejs nodemailer 코딩
+
+9. git push
+
+10. aws ec2 에서 git pull
+
+11. npm run setup-all
