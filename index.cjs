@@ -70,8 +70,9 @@ app.get('/getInfo', (req, res) => {
         for (const iface of networkInterface) {
             console.log(iface)
             if (iface.family === 'IPv4' && !iface.internal) {
-                res.send(iface.address)
-                return iface.address;
+                res.send({
+                    address: iface.address
+                })
             }
         }
     }
