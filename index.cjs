@@ -63,11 +63,12 @@ app.post('/email', (req, res) => {
 
 app.get('/getInfo', (req, res) => {
     const interfaces = os.networkInterfaces();
-
+    
     for (const interfaceName in interfaces) {
         const networkInterface = interfaces[interfaceName];
 
         for (const iface of networkInterface) {
+            console.log(iface)
             if (iface.family === 'IPv4' && !iface.internal) {
                 res.send(iface.address)
                 return iface.address;

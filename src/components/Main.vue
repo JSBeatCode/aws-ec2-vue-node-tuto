@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { reactive, toRefs, onUpdated } from 'vue'
+import { reactive, toRefs, onUpdated, onMounted } from 'vue'
 
 export default {
     setup () {
@@ -38,6 +38,10 @@ export default {
         // onUpdated (() => {
         //     console.log(state)
         // })
+
+        onMounted(() => {
+            console.log('first')
+        })
 
         const sendEmail = () => {
             // const subject = document.getElementById("subject").value;
@@ -116,7 +120,8 @@ export default {
             sendEmail,
             sendMsg,
             getMsg,
-            onUpdated
+            onUpdated,
+            onMounted
         }
     }
 }
