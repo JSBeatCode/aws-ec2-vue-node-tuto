@@ -45,7 +45,6 @@ export default {
             fetch('/getInfo')
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
                     state.clientAddr = data.address;
                     state.host = 'http://' + data.address + ':7771/'
                 // 가져온 메시지를 HTML에 표시
