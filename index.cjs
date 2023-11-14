@@ -5,7 +5,12 @@ const path = require('path')
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 const axios = require('axios');
+const os = require('os');
 // const fetch = require('node-fetch');
+const states = {
+    clientIp: '',
+}
+
 
 app.use(express.json())
 app.use(cors())
@@ -14,6 +19,13 @@ app.use(express.static('dist'));
     // res.sendFile("index.html", {root: path.join(__dirname)}, () => {});
     // res.status(200).send('Hello There!')
 // })
+
+app.use((req, res, next) => {
+    const clientIp = req.ip;
+    console.log('Client IP: ' + clientIp);
+    states.clientIp = clientIp;
+    next();
+})
 
 app.get('/getmsg', (req, res) => {
     //const url = "http://ec2-54-180-85-94.ap-northeast-2.compute.amazonaws.com:7771/getmsg"
@@ -49,9 +61,24 @@ app.post('/email', (req, res) => {
     sendEmail(req.body)
 })
 
+app.get('/getInfo', (req, res) => {
+    const interfaces = os.networkInterfaces();
+
+    for (const interfaceName in interfaces) {
+        const networkInterface = interfaces[interfaceName];
+
+        for (const iface of networkInterface) {
+            if (iface.family === 'IPv4' && !iface.internal) {
+                res.send(iface.address)
+                return iface.address;
+            }
+        }
+    }
+})
+
 
 app.listen(7771, () => {
-    console.log('Server Started on Port!', 7771)
+    console.log('Server Started ' + states.clientIp + ' on Port!', 7771)
 })
 
 

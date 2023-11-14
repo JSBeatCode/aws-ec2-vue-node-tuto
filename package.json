@@ -15,7 +15,7 @@
     "setup-build": "vite build",
     "setup-client": "nodemon index.cjs",
     "setup-server": "npx json-server --watch database.json --port 3010",
-    "setup-app": "concurrently --kill-others \"npm run client\" \"npm run server\"",
+    "setup-app": "concurrently --kill-others \"npm run setup-client\" \"npm run setup-server\"",
     "setup-all-client": "npm-run-all setup-build setup-client",
     "setup-all": "npm-run-all setup-build setup-app"
   },
@@ -28,6 +28,7 @@
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.5",
     "npm-run-all": "^4.1.5",
+    "os": "^0.1.2",
     "vue": "^3.3.4"
   },
   "devDependencies": {
