@@ -1,5 +1,4 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import Main from './components/Main.vue'
 </script>
 
@@ -22,7 +21,6 @@ import Main from './components/Main.vue'
     </a>
   </div>
   <Main />
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
 <style scoped>

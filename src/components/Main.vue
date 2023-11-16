@@ -28,8 +28,6 @@ export default {
     setup () {
         const state = reactive({
             count: 0,
-            host: "http://ec2-54-180-92-175.ap-northeast-2.compute.amazonaws.com:7771",
-            // host: "http://127.0.0.1:7771",
             title: '',
             subject: '',
             contents: '',
@@ -41,23 +39,10 @@ export default {
         // })
 
         onMounted(() => {
-            console.log('first', state.clientAddr);
-            fetch('/getInfo')
-                .then(response => response.json())
-                .then(data => {
-                    state.clientAddr = data.address;
-                    state.host = 'http://' + data.address + ':7771/'
-                // 가져온 메시지를 HTML에 표시
-                // const messageContainer = document.getElementById('message-container');
-                // messageContainer.textContent = data.message;
-                })
-                .catch(error => console.error('Error:', error));
+            
         })
 
         const sendEmail = () => {
-            // const subject = document.getElementById("subject").value;
-            // const title = document.getElementById("title").value;
-            // const contents = document.getElementById("code").value;
             const subject = state.subject;
             const title = state.title;
             const contents = state.contents;
@@ -88,9 +73,6 @@ export default {
             // const url = state.host + "/sendmsg"
             const url = "/sendmsg"
 
-            // const subject = document.getElementById("subject").value;
-            // const title = document.getElementById("title").value;
-            // const contents = document.getElementById("code").value;
             const subject = state.subject;
             const title = state.title;
             const contents = state.contents;

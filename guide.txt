@@ -50,7 +50,7 @@ AMI ID
 	node 테스트
 		node -e "console.log('Running Node.js ' + process.version)"
 
-3. app server coding
+3. app server coding(index.cjs, database.cjs)
 
 4. local에서 vite vue app 기본 생성
 
@@ -68,4 +68,11 @@ AMI ID
 
 10. aws ec2 에서 git pull
 
-11. npm run setup-all
+11. 실행커멘드: npm run setup-all
+
+<ec2 터미널 꺼도 실행하기>
+12. npm install -g pm2
+
+13. pm2 start index.cjs 
+
+14. pm2 start database.cjs 
