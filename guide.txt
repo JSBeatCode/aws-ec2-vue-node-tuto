@@ -71,8 +71,12 @@ AMI ID
 11. 실행커멘드: npm run setup-all
 
 <ec2 터미널 꺼도 실행하기>
-12. npm install -g pm2
+12-1. (필요시) Main.vue 의 host 코드 수정
 
-13. pm2 start index.cjs 
+12-2. database.cjs 코딩
 
-14. pm2 start database.cjs 
+14. npm install -g pm2
+
+15. pm2 start index.cjs 
+
+16. pm2 start database.cjs 
